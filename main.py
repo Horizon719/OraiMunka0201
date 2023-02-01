@@ -1,11 +1,12 @@
 #megoldas
-def eredmeny(jPont, gPont):
-    if osszegzes(jPont) > 21:
+def eredmeny(jLapok: list[int], gLapok: list[int]):
+    if osszegzes(jLapok) > 21:
         return "Játékos vesztett"
-    elif osszegzes(gPont) > 21:
+    elif osszegzes(gLapok) > 21:
         return "Gép vesztett"
 
-def osszegzes(lista):
+
+def osszegzes(lista: list[int]):
     i = 0
     osszeg = 0
     while i < len(lista):
