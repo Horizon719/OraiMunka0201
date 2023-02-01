@@ -14,3 +14,17 @@ def osszegzes(lista: list[int]):
         i += 1
     return osszeg
 #teszt esetek
+
+
+def jatekos_vesztett_teszt():
+    jLapok = [10, 5, 6, 8]
+    gLapok = [2, 7]
+
+    print(eredmeny(jLapok, gLapok))
+
+
+def tesztek():
+    jatekos_vesztett_teszt()
+
+
+tesztek()
