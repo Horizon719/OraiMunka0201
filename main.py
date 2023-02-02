@@ -61,8 +61,8 @@ def gep_vesztett_teszt():
 
 
 def gep_vesztett_teszt2():
-    jLapok = [9, 1, 7]
-    gLapok = [5, 7, 10]
+    jLapok = [5, 7, 9]
+    gLapok = [10, 1, 7]
     kapott = eredmeny(jLapok, gLapok)
     vart = "Gép vesztett"
     if kapott == vart:
