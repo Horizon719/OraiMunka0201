@@ -1,9 +1,30 @@
 #megoldas
 def eredmeny(jLapok: list[int], gLapok: list[int]):
-    if osszegzes(jLapok) > 21:
-        return "Játékos vesztett"
-    elif osszegzes(gLapok) > 21:
-        return "Gép vesztett"
+    s = ""
+    jossz = osszegzes(jLapok)
+    gossz = osszegzes(gLapok)
+    jdb = lapdb(jLapok)
+    gdb = lapdb(gLapok)
+    if jossz <= 21 and gossz <= 21:
+        if jossz > gossz:
+            s = "Gép vesztett"
+        elif gossz > jossz:
+            s = "Játékos vesztett"
+        elif jossz == gossz:
+            if jdb < gdb:
+                s = "Gép vesztett"
+            elif gdb > jdb:
+                s = "Játékos vesztett"
+            else:
+                s = "Döntetlen"
+    else:
+        if jossz > 21:
+            s = "Játékos vesztett"
+        if gossz > 21:
+            s = "Gép vesztett"
+        if jossz > 21 and gossz > 21:
+            s = "Döntetlen"
+    return s
 
 
 def osszegzes(lista: list[int]):
@@ -13,6 +34,10 @@ def osszegzes(lista: list[int]):
         osszeg += lista[i]
         i += 1
     return osszeg
+
+
+def lapdb(lista: list[int]):
+    return len(lista)
 #teszt esetek
 
 
@@ -84,9 +109,9 @@ def gep_vesztett_teszt3():
 
 def dontetlen_teszt():
     jLapok = [10, 5, 7]
-    gLapok = [2, 7, 9]
+    gLapok = [6, 7, 9]
     kapott = eredmeny(jLapok, gLapok)
-    vart = "Döntetlen vesztett"
+    vart = "Döntetlen"
     if kapott == vart:
         print("A döntetlen_teszt sikeres")
     else:
@@ -97,7 +122,7 @@ def dontetlen_teszt2():
     jLapok = [5, 6, 10]
     gLapok = [11, 4, 6]
     kapott = eredmeny(jLapok, gLapok)
-    vart = "Döntetlen vesztett"
+    vart = "Döntetlen"
     if kapott == vart:
         print("A döntetlen_teszt2 sikeres")
     else:
@@ -108,7 +133,7 @@ def dontetlen_teszt3():
     jLapok = [8, 9]
     gLapok = [10, 7]
     kapott = eredmeny(jLapok, gLapok)
-    vart = "Döntetlen vesztett"
+    vart = "Döntetlen"
     if kapott == vart:
         print("A döntetlen_teszt3 sikeres")
     else:
